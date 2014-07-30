@@ -63,7 +63,7 @@ struct Traits : public osg::Referenced, public ScreenIdentifier
     bool            vsync;
     bool            useMultiThreadedOpenGLEngine;
     bool            useCursor;
-    GraphicsContext* sharedContext;
+    osg::observer_ptr<GraphicsContext> sharedContext;
     osg::ref_ptr<osg::Referenced> inheritedWindowData;
     bool setInheritedWindowPixelFormat;
 };
