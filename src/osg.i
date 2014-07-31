@@ -168,6 +168,10 @@ template<class ValueT> std::vector<ValueT> *asVectorTemplate(osg::MixinVector<Va
 %define OSG_EXPORT
 %enddef
 
+// Avoid OpenGL syntax error (maybe python only?)
+%define GL_APIENTRY
+%enddef
+
 // language specific renames
 #ifdef SWIGRUBY
 %rename(allocatefield) osg::HeightField::allocate(unsigned int numColumns,unsigned int numRows);
@@ -190,6 +194,9 @@ template<class ValueT> std::vector<ValueT> *asVectorTemplate(osg::MixinVector<Va
 #define Z_AXIS(a,b,c) Z_AXIS=Vec3f(0.0,0.0,1.0);
 
 %ignore osg::Geometry::s_InvalidArrayData;
+
+// At least in OSG 3.2.1...
+%rename(deprecated_Geometry) deprecated_osg::Geometry;
 
 /* getRotate conversion */
 %apply double *OUTPUT {double &angle, double &x, double &y, double &z};
