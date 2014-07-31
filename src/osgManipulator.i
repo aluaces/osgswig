@@ -56,9 +56,6 @@ using namespace osg;
 
 // ignore nested stuff
 
-
-
-
 /* include the actual headers */
 %include osgManipulator/Export
 %include osgManipulator/Selection
@@ -94,6 +91,8 @@ osgManipulator::Selection *NodeToSelection(osg::Node *d) {
 }
 %}
 
-
-
+%inline %{
+typedef osgManipulator::Constraint Constraint;
+typedef osgManipulator::DraggerCallback DraggerCallback;
+%}
 

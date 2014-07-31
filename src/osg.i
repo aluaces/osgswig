@@ -410,7 +410,22 @@ VECIGNOREHELPER(Quat)
 %ignore osg::StateSet::getUpdateCallback;
 %ignore osg::StateSet::setEventCallback;
 %ignore osg::StateSet::getEventCallback;
-%ignore osg::StateSet::Callback;
+/* %ignore osg::StateSet::Callback; */
+%{
+typedef osg::StateSet::Callback Callback;
+%}
+
+struct Callback : public virtual osg::Object
+{
+    Callback() {}
+
+    Callback(const Callback&,const CopyOp&) {}
+
+    META_Object(osg,Callback);
+
+    /** do customized callback code.*/
+    virtual void operator() (StateSet*, NodeVisitor*) {}
+};
 
 %ignore osg::StateAttribute::ModeUsage;
 %ignore osg::StateAttribute::Callback;

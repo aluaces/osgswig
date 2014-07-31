@@ -95,6 +95,11 @@ ENDIF (BUILD_WITH_OSGPPU)
 OPTION(BUILD_WITH_OSGINTROSPECTION "Create wrappers for osgIntrospection (OSG's own introspection library needs to be available)" OFF)
 OPTION(BUILD_WITH_OSGANIMATION     "Create wrappers for osgAnimation (available from osg 2.8)" ON)
 
+OPTION(BUILD_WITH_OSGVOLUME     "Create wrappers for osgVolume (available from osg ???)" ON)
+IF (BUILD_WITH_OSGVOLUME)
+    FIND_PACKAGE(OSGVOLUME)
+endif()
+
 # bug on CMake 2.6 and 2.7 on Mac 
 IF (APPLE)
 	SET(OSG_INCLUDE_DIR "/${OSG_INCLUDE_DIR}")
