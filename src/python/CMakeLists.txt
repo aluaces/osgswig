@@ -153,5 +153,5 @@ set_target_properties( ${SWIG_MODULE_osg_REAL_NAME} PROPERTIES COMPILE_FLAGS "/b
 
 ENDIF(WIN32)
 
-file( COPY "__init__.py" DESTINATION ${OUTPUT_LIBDIR} )
-file( COPY "setup.py" DESTINATION ${OUTPUT_LIBDIR} )
+configure_file(__init__.py.in "${OUTPUT_LIBDIR}/__init__.py" @ONLY)
+configure_file(setup.py.in "${OUTPUT_LIBDIR}/setup.py" @ONLY)
