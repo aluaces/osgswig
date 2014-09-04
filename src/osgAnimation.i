@@ -53,17 +53,6 @@
 %ignore osgAnimation::RigGeometry::setRigTransformImplementation;
 %ignore osgAnimation::RigGeometry::getRigTransformImplementation;
 
-%ignore osgAnimation::RigTransformHardware::createPalette;
-%ignore osgAnimation::BasicAnimationManager::isPlaying;
-%ignore osgAnimation::Bone::setDefaultUpdateCallback;
-%ignore osgAnimation::Bone::Bone;
-%ignore osgAnimation::Channel::setTargetName;
-%ignore osgAnimation::Channel::setName;
-%ignore RigTransformHardware::createPalette;
-%ignore BasicAnimationManager::isPlaying;
-%ignore Channel::setTargetName;
-%ignore Channel::setName;
-
 // remove the linkage macros
 %define OSG_EXPORT
 %enddef

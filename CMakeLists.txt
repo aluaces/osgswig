@@ -100,8 +100,14 @@ IF (BUILD_WITH_OSGVOLUME)
     FIND_PACKAGE(OSGVOLUME)
 endif()
 
-# bug on CMake 2.6 and 2.7 on Mac 
 IF (APPLE)
+        # Use same C++ libraries that were used to build OpenSceneGraph
+        # set standard lib, clang defaults to c++0x
+        set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++98")
+        set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libstdc++")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++98 -stdlib=libstdc++ -Wno-overloaded-virtual -Wno-conversion")
+
+        # bug on CMake 2.6 and 2.7 on Mac 
 	SET(OSG_INCLUDE_DIR "/${OSG_INCLUDE_DIR}")
 ENDIF(APPLE)
 

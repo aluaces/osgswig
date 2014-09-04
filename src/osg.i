@@ -1,86 +1,7 @@
 %module(directors="1") osg
 
-# Avoid clang compile error on Mac
+// Avoid clang compile error on Mac
 %ignore getParents;
-
-# Avoid link errors on Mac with OSG 3.2.1
-%ignore osg::AnimationPath::read;
-%ignore osg::ArgumentParser::reportError;
-%ignore osg::ArgumentParser::writeErrorMessages;
-%ignore osg::CameraRef::write;
-%ignore osg::CullSettings::write;
-%ignore osg::ImageSequence::addImageFile;
-%ignore osg::ImageSequence::setImageFile;
-%ignore osg::ShaderBinary::readShaderBinaryFile;
-%ignore osg::OperationQueue::remove;
-%ignore osg::ApplicationUsage::getFormattedString;
-%ignore osg::ApplicationUsage::addUsageExplanation;
-%ignore osg::ApplicationUsage::addCommandLineOption;
-%ignore osg::ApplicationUsage::addKeyboardMouseBinding;
-%ignore osg::ApplicationUsage::addKeyboardMouseBinding;
-%ignore osg::ApplicationUsage::addKeyboardMouseBinding;
-%ignore osg::ApplicationUsage::addEnvironmentalVariable;
-%ignore osg::ApplicationUsage::writeEnvironmentSettings;
-%ignore osg::ApplicationUsage::write;
-%ignore osg::ApplicationUsage::ApplicationUsage;
-%ignore osg::computeEyeToLocal;
-%ignore osg::computeLocalToEye;
-%ignore osg::computeLocalToWorld;
-%ignore osg::computeWorldToLocal;
-%ignore osg::GLBufferObjectManager::reportStats;
-%ignore osg::GLBufferObjectManager::recomputeStats;
-%ignore osg::Node::addDescription;
-%ignore osg::Node::setDescriptions;
-%ignore osg::Image::setFileName;
-%ignore osg::Stats::setAttribute;
-%ignore osg::Stats::Stats;;
-%ignore ScreenIdentifier::setScreenIdentifier;
-%ignore ScreenIdentifier::ScreenIdentifier;
-%ignore osg::OperationThread::remove;
-%ignore osg::ApplicationUsage::addUsageExplanation;
-%ignore osg::ApplicationUsageProxy::ApplicationUsageProxy;
-%ignore osg::Shader::readShaderFile;
-%ignore osg::Shader::setShaderSource;
-%ignore osg::Shader::loadShaderSourceFromFile;
-%ignore osg::Shader::getTypeId;
-%ignore osg::Shader::Shader;
-%ignore osg::Program::addBindUniformBlock;
-%ignore osg::Program::addBindAttribLocation;
-%ignore osg::Program::removeBindUniformBlock;
-%ignore osg::Program::addBindFragDataLocation;
-%ignore osg::Program::removeBindAttribLocation;
-%ignore osg::Program::removeBindFragDataLocation;
-%ignore osg::Uniform::getNameID;
-%ignore osg::Uniform::getTypeId;
-%ignore osg::Uniform::Uniform;
-%ignore osg::Geometry::setPrimitiveSetList;
-%ignore osg::PagedLOD::setDatabasePath;
-%ignore osg::StateSet::getUniform;
-%ignore osg::StateSet::removeUniform;
-%ignore osg::StateSet::getOrCreateUniform;
-%ignore osg::StateSet::setRenderBinDetails;
-%ignore osg::ProxyNode::setDatabasePath;
-%ignore osg::AnimationPath::write;
-%ignore osg::ArgumentParser::find;
-%ignore osg::ArgumentParser::match;
-%ignore osg::State::convertVertexShaderSourceToOsgBuiltIns;
-%ignore osg::State::print;
-%ignore osg::Stats::getAttributeNoMutex;
-%ignore osg::Stats::getAveragedAttribute;
-%ignore osg::Stats::getAveragedAttribute;
-%ignore osg::Shader::getGlShaderInfoLog;
-%ignore osg::Program::getGlProgramInfoLog;
-%ignore osg::Geometry::getArrayList;
-%ignore osg::Geometry::getDrawElementsList;
-%ignore osg::StateSet::getUniform;
-%ignore osg::StateSet::getUniformPair;
-
-%ignore osg::Stats::getAttribute;
-%ignore PerContextProgram::getUniformLocation;
-%ignore osg::Program::PerContextProgram::getUniformLocation;
-%ignore Program::PerContextProgram::getUniformLocation;
-%ignore getUniformLocation;
-
 
 #ifdef SWIGPYTHON
 // Workaround for this bug - triggered when iterating vectorNode
@@ -324,7 +245,6 @@ VECIGNOREHELPER(Quat)
 %ignore osg::Matrix2::operator ()(int,int) ;
 %ignore osg::Matrix3::operator ()(int,int) ;
 %ignore osg::Node::getParents() ;
-%ignore osg::Group::getParents() ;
 %ignore osg::Uniform::getParents();
 %ignore osg::Node::getWorldMatrices( osg::Node* ) ;
 

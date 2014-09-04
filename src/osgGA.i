@@ -1,14 +1,5 @@
 %module(directors="1") osgGA
 
-%ignore osgGA::EventQueue::takeEvents;
-%ignore osgGA::EventQueue::appendEvents;
-%ignore osgGA::EventQueue::setEvents;
-%ignore osgGA::NodeTrackerManipulator::setTrackNodePath;
-%ignore osgGA::NodeTrackerManipulator::getTrackNode;
-%ignore osgGA::AnimationPathManipulator::AnimationPathManipulator;
-%ignore osgGA::KeySwitchMatrixManipulator::addMatrixManipulator;
-%ignore osgGA::EventQueue::copyEvents;
-
 #ifdef SWIGPYTHON
 %feature("director") osgGA::GUIEventHandler;
 #endif
