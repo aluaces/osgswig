@@ -1,5 +1,15 @@
 %module osgText
 
+%ignore osgText::findFontFile;
+%ignore osgText::readFontFile;
+%ignore osgText::readFontStream;
+%ignore osgText::readRefFontFile;
+%ignore osgText::readRefFontStream;
+%ignore osgText::Bevel::print;
+%ignore osgText::String::set;
+%ignore osgText::String::String;
+%ignore osgText::TextBase::setText;
+
 #ifdef SWIGPERL
 %{
 #undef STATIC

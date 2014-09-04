@@ -1,5 +1,11 @@
 %module osgSim
 
+%ignore osgSim::ColorRange::setColors;
+%ignore osgSim::ColorRange::ColorRange;
+%ignore osgSim::MultiSwitch::setValueList;
+%ignore osgSim::MultiSwitch::setValueName;
+%ignore osgSim::MultiSwitch::setSwitchSetList;
+
 #ifdef SWIGPERL
 %{
 #undef STATIC

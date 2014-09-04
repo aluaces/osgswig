@@ -1,5 +1,7 @@
 %module osgManipulator
 
+%ignore osgManipulator::computeNodePathToRoot;
+
 #ifdef SWIGPERL
 %{
 #undef STATIC

@@ -1,5 +1,14 @@
 %module (directors="1") osgUtil
 
+%ignore osgUtil::Simplifier::simplify;
+%ignore osgUtil::CullVisitor::computeNearestPointInFrustum;
+%ignore osgUtil::CullVisitor::computeFurthestPointInFrustum;
+%ignore osgUtil::RenderBin::find_or_insert;
+%ignore osgUtil::RenderBin::createRenderBin;
+%ignore osgUtil::RenderBin::addRenderBinPrototype;
+%ignore osgUtil::RenderBin::getRenderBinPrototype;
+%ignore osgUtil::CullVisitor::pushStateSet;
+
 #ifdef SWIGPERL
 %{
 #undef STATIC

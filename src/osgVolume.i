@@ -1,5 +1,7 @@
 %module osgVolume
 
+%ignore osgVolume::ScalarProperty::ScalarProperty;
+
 #ifdef SWIGPERL
 %{
 #undef STATIC

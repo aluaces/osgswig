@@ -1,5 +1,16 @@
 %module(directors="1") osgViewer
 
+%ignore osgViewer::ViewerBase::checkWindowStatus;
+%ignore osgViewer::StatsHandler::removeUserStatsLine;
+%ignore osgViewer::GraphicsWindow::getViews;
+%ignore osgViewer::RecordCameraPathHandler::RecordCameraPathHandler;
+%ignore osgViewer::View::computeIntersections;
+%ignore osgViewer::View::setCoordinateSystemNodePath;
+%ignore osgViewer::GraphicsWindow::requestRedraw;
+%ignore osgViewer::View::requestRedraw;
+%ignore osgViewer::StatsHandler::addUserStatsLine;
+%ignore osgViewer::GraphicsWindowEmbedded;
+
 #ifdef SWIGPERL
 %{
 #undef STATIC
