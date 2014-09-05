@@ -1,5 +1,8 @@
 %module(directors="1") osg
 
+// Avoid clang compile error on Mac
+// %ignore getParents;
+
 #ifdef SWIGPYTHON
 // Workaround for this bug - triggered when iterating vectorNode
 // http://sourceforge.net/tracker/index.php?func=detail&aid=1863647&group_id=1645&atid=101645
