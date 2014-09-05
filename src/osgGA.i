@@ -57,10 +57,9 @@ struct CoordinateFrameCallback : public virtual osg::Referenced
 %include osgGA/CameraViewSwitchManipulator
 %include osgGA/KeySwitchMatrixManipulator
 %include osgGA/StateSetManipulator
-%include osgGA/OrbitManipulator
-%include osgGA/SphericalManipulator
 %include osgGA/StandardManipulator
 %include osgGA/OrbitManipulator
+%include osgGA/SphericalManipulator
 %include osgGA/TerrainManipulator
 %include osgGA/TrackballManipulator
 %include osgGA/UFOManipulator
