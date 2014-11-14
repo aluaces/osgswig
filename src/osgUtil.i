@@ -63,7 +63,7 @@
 #include <osgUtil/UpdateVisitor>
 #include <osgUtil/Version>
 #include <osgUtil/LineSegmentIntersector>
-//#include <osgUtil/PolytopeIntersector>
+#include <osgUtil/PolytopeIntersector>
 
 %}
 
@@ -206,5 +206,5 @@ typedef osgUtil::LineSegmentIntersector::Intersection Intersection;
 %}
 
 
-//%include osgUtil/PolytopeIntersector
+%include osgUtil/PolytopeIntersector
 
