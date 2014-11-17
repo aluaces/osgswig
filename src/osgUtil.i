@@ -21,6 +21,7 @@
 %include "std_vector.i"
 %include "std_string.i"
 %include "std_multiset.i"
+%include "std_set.i"
 
 
 /* import headers */
@@ -152,13 +153,13 @@ typedef osgUtil::IntersectionVisitor::ReadCallback ReadCallback;
 
 ///////////////////////////////////////////////////////////////////////////////
 /// Duplicate nested class from osgUtil/LineSegmentIntersector 
-struct Intersection
+struct LineSegmentIntersector_Intersection
 {
     Intersection():
 	ratio(-1.0),
 	primitiveIndex(0) {}
 
-    bool operator < (const Intersection& rhs) const { return ratio < rhs.ratio; }
+    bool operator < (const LineSegmentIntersector_Intersection& rhs) const { return ratio < rhs.ratio; }
 
     typedef std::vector<unsigned int>   IndexList;
     typedef std::vector<double>         RatioList;
@@ -180,6 +181,40 @@ struct Intersection
     osg::Vec3 getWorldIntersectNormal() const { return matrix.valid() ? osg::Matrix::transform3x3(osg::Matrix::inverse(*matrix),localIntersectionNormal) : localIntersectionNormal; }
 };
 
+///////////////////////////////////////////////////////////////////////////////
+/// Duplicate nested class from osgUtil/LineSegmentIntersector 
+struct PolytopeIntersector_Intersection
+{
+    PolytopeIntersector_Intersection():
+        distance(0.0),
+        maxDistance(0.0),
+        numIntersectionPoints(0),
+        primitiveIndex(0) {}
+
+    bool operator < (const PolytopeIntersector_Intersection& rhs) const
+    {
+        if (distance < rhs.distance) return true;
+        if (rhs.distance < distance) return false;
+        if (primitiveIndex < rhs.primitiveIndex) return true;
+        if (rhs.primitiveIndex < primitiveIndex) return false;
+        if (nodePath < rhs.nodePath) return true;
+        if (rhs.nodePath < nodePath ) return false;
+        return (drawable < rhs.drawable);
+    }
+
+    enum { MaxNumIntesectionPoints=6 };
+
+    double                          distance;     ///< distance from reference plane
+    double                          maxDistance;  ///< maximum distance of intersection points from reference plane
+    osg::NodePath                   nodePath;
+    osg::ref_ptr<osg::Drawable>     drawable;
+    osg::ref_ptr<osg::RefMatrix>    matrix;
+    osgUtil::PolytopeIntersector::Vec3_type                       localIntersectionPoint;  ///< center of all intersection points
+    unsigned int                    numIntersectionPoints;
+    osgUtil::PolytopeIntersector::Vec3_type                       intersectionPoints[MaxNumIntesectionPoints];
+    unsigned int                    primitiveIndex; ///< primitive index
+};
+
 #ifdef SWIGPYTHON
 %typemap(out) osgUtil::LineSegmentIntersector::Intersections& {
     
@@ -189,22 +224,41 @@ struct Intersection
 
     for (osgUtil::LineSegmentIntersector::Intersections::iterator i = $1->begin(); i != $1->end(); ++i) 
 	{
-		PyObject* obj = SWIG_NewPointerObj((new Intersection(static_cast< const Intersection& >(*i))), SWIGTYPE_p_Intersection, SWIG_POINTER_OWN |  0 );
+		PyObject* obj = SWIG_NewPointerObj((new LineSegmentIntersector_Intersection(static_cast< const LineSegmentIntersector_Intersection& >(*i))), SWIGTYPE_p_LineSegmentIntersector_Intersection, SWIG_POINTER_OWN |  0 );
 
 		if (obj) 
 			if (PyList_Append($result, obj) == -1) return NULL;
     }
 }
 
+%include osgUtil/LineSegmentIntersector
+
+%typemap(out) osgUtil::PolytopeIntersector::Intersections& {
+    
+    $result = PyList_New(0);
+    
+    if ($result == 0 || $1 == 0) return NULL;
+
+    for (osgUtil::PolytopeIntersector::Intersections::iterator i = $1->begin(); i != $1->end(); ++i) 
+    {
+        PyObject* obj = SWIG_NewPointerObj((new PolytopeIntersector_Intersection(static_cast< const PolytopeIntersector_Intersection& >(*i))), SWIGTYPE_p_PolytopeIntersector_Intersection, SWIG_POINTER_OWN |  0 );
+
+        if (obj) 
+            if (PyList_Append($result, obj) == -1) return NULL;
+    }
+}
+
+%include osgUtil/PolytopeIntersector
+
 #endif // SWIGPYTHON
 
-%include osgUtil/LineSegmentIntersector
 
 
 %{
-typedef osgUtil::LineSegmentIntersector::Intersection Intersection;
+typedef osgUtil::LineSegmentIntersector::Intersection LineSegmentIntersector_Intersection;
+typedef osgUtil::PolytopeIntersector::Intersection PolytopeIntersector_Intersection;
 %}
 
 
-%include osgUtil/PolytopeIntersector
+// %include osgUtil/PolytopeIntersector
 
