@@ -2,6 +2,9 @@
 
 #ifdef SWIGPYTHON
 %feature("director") osgGA::GUIEventHandler;
+%feature("director") osgGA::CameraManipulator;
+%feature("director") osgGA::StandardManipulator;
+%feature("director") osgGA::FirstPersonManipulator;
 #endif
 
 #ifdef SWIGPERL
