@@ -14,7 +14,7 @@
 ##---------------------------------------------------------------------------
 
 # Append patch-patch-version for version of bindings
-set(OSGSWIG_BINDINGS_VERSION 1)
+set(OSGSWIG_BINDINGS_VERSION 2pre)
 
 IF(WIN32)
     CMAKE_MINIMUM_REQUIRED(VERSION 2.4.6 FATAL_ERROR)
