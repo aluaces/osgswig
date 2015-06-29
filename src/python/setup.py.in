@@ -1,10 +1,12 @@
 from setuptools import setup
+
 setup(name='osgswig',
       version='@OSGSWIG_VERSION@',
       description='Python OpenSceneGraph @OSGSWIG_VERSION@ Swig Bindings',
       packages=['osgswig'],
       package_dir={'osgswig': '.'},
-      package_data={'osgswig': ['*.pyd','_*.so','./examples/*.py']},
+      package_data={'osgswig': ['*.pyd','_*.so','./examples/*.py','*.dll','osgPlugins-3.2.1/*.dll']},
       author='http://code.google.com/p/osgswig/people/list',
       url='http://code.google.com/p/osgswig',      
       )
+

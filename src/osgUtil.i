@@ -182,7 +182,7 @@ struct LineSegmentIntersector_Intersection
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Duplicate nested class from osgUtil/LineSegmentIntersector 
+/// Duplicate nested class from osgUtil/PolytopeIntersector 
 struct PolytopeIntersector_Intersection
 {
     PolytopeIntersector_Intersection():
@@ -216,6 +216,7 @@ struct PolytopeIntersector_Intersection
 };
 
 #ifdef SWIGPYTHON
+
 %typemap(out) osgUtil::LineSegmentIntersector::Intersections& {
     
 	$result = PyList_New(0);

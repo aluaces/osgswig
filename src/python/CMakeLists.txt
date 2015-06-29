@@ -152,6 +152,13 @@ ENDFOREACH(modname)
 
 set_target_properties( ${SWIG_MODULE_osg_REAL_NAME} PROPERTIES COMPILE_FLAGS "/bigobj" )
 
+# Copy DLL files to staging area
+get_filename_component(OSG_SHLIBS_DIR ${OSG_INCLUDE_DIR} DIRECTORY)
+file(GLOB OSG_SHLIBS "${OSG_SHLIBS_DIR}/bin/o*.dll")
+file(COPY ${OSG_SHLIBS} DESTINATION "${OUTPUT_LIBDIR}")
+file(GLOB OSG_PLUGINS "${OSG_SHLIBS_DIR}/bin/osgPlugins*/osgdb_*.dll")
+file(COPY ${OSG_PLUGINS} DESTINATION "${OUTPUT_LIBDIR}/osgPlugins-3.2.1")
+
 ENDIF(WIN32)
 
 configure_file(__init__.py.in "${OUTPUT_LIBDIR}/__init__.py" @ONLY)
