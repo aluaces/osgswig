@@ -27,6 +27,7 @@ PROJECT(osgswig)
 # Using full paths for link libraries (CMake 2.6)
 IF(COMMAND cmake_policy)
   CMAKE_POLICY(SET CMP0003 NEW)
+  CMAKE_POLICY(SET CMP0078 OLD)
 ENDIF(COMMAND cmake_policy)
 
 
