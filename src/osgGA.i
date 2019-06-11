@@ -42,6 +42,7 @@
 %ignore osgGA::GUIEventAdapter::getTouchData;
 %ignore osgGA::GUIEventAdapter::setTouchData;
 %include osgGA/GUIEventAdapter
+%include osgGA/Event
 %include osgGA/EventQueue
 // %include osgGA/GUIEventHandlerVisitor
 %include osgGA/GUIEventHandler
