@@ -152,7 +152,6 @@
 #include <osg/PositionAttitudeTransform>
 #include <osg/AutoTransform>
 #include <osg/Camera>
-#include <osg/CameraNode>
 #include <osg/CameraView>
 #include <osg/Uniform>
 
@@ -515,9 +514,6 @@ struct Callback : public virtual osg::Object
 %ignore osg::Camera::getCameraThread;
 
 %ignore osg::Camera::DrawCallback;
-
-%ignore osg::CameraNode::Attachment;
-%ignore osg::CameraNode::BufferAttachmentMap;
 
 // more finegrain manipulation needed
 %ignore osg::GraphicsThread::add;
@@ -1114,7 +1110,6 @@ struct ModifiedCallback : public virtual osg::Object
 %{
 typedef osg::Camera::DrawCallback DrawCallback;
 %}
-%include osg/CameraNode
 %include osg/CameraView
 
 %include osg/ComputeBoundsVisitor
@@ -1137,7 +1132,6 @@ typedef osg::Camera::DrawCallback DrawCallback;
 %template(LightRef) osg::ref_ptr<osg::Light>;
 %template(MatrixTransformRef) osg::ref_ptr<osg::MatrixTransform>;
 %template(AutoTransformRef) osg::ref_ptr<osg::AutoTransform>;
-%template(CameraNodeRef) osg::ref_ptr<osg::CameraNode>;
 %template(CameraViewRef) osg::ref_ptr<osg::CameraView>;
 %template(CameraRef) osg::ref_ptr<osg::Camera>;
 

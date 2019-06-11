@@ -91,7 +91,6 @@
 
 #if (OSG_VERSION_MAJOR > 0)
 #include <osg/AutoTransform>
-#include <osg/CameraNode>
 #include <osg/CameraView>
 #endif
 
