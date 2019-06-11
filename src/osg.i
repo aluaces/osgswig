@@ -847,13 +847,13 @@ so an explicit $self is needed for all member access, see http://www.swig.org/Do
 %include osg/Program
 
 %extend osg::Program { 
-GLuint getHandle(int contextID) {
+GLuint getHandle(osg::State &contextID) {
     return $self->getPCP(contextID)->getHandle();
 }
-GLint getUniformLocation(int contextID, std::string name) {
+GLint getUniformLocation(osg::State &contextID, std::string name) {
     return $self->getPCP(contextID)->getUniformLocation(name);
 }
-GLint getAttribLocation(int contextID, std::string name) {
+GLint getAttribLocation(osg::State &contextID, std::string name) {
     return $self->getPCP(contextID)->getAttribLocation(name);
 }
 } 
