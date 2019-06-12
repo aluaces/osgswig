@@ -20,7 +20,7 @@ steps:
 
     $> mkdir build
     $> cd build
-    $> cmake ..  -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=-fpermissive # (for now)
+    $> cmake ..  -DCMAKE_BUILD_TYPE=Release
     $> make
 
 (or use cmakesetup on windows)

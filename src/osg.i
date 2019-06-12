@@ -1,7 +1,7 @@
 %module(directors="1") osg
 
 // Avoid clang compile error on Mac
-// %ignore getParents;
+%ignore getParents;
 
 #ifdef SWIGPYTHON
 // Workaround for this bug - triggered when iterating vectorNode
@@ -243,8 +243,6 @@ VECIGNOREHELPER(Quat)
 // ignore override for osg::Matrix2 and osg::Matrix3
 %ignore osg::Matrix2::operator ()(int,int) ;
 %ignore osg::Matrix3::operator ()(int,int) ;
-%ignore osg::Node::getParents() ;
-%ignore osg::Uniform::getParents();
 %ignore osg::Node::getWorldMatrices( osg::Node* ) ;
 
 // correct override for osg::Uniform::get
