@@ -60,7 +60,7 @@ ENDIF(UNIX)
 ########################################################################################################
 ##### use the module to include the OpenSceneGraph files
 ########################################################################################################
-FIND_PACKAGE(OSG) #OpenSceneGraph
+FIND_PACKAGE(osg) #OpenSceneGraph
 
 check_osg_version(${OSG_INCLUDE_DIR}/osg/Version)
 #
